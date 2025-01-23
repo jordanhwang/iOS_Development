@@ -7,18 +7,37 @@
 
 import SwiftUI
 
+// Default Code
+//struct ContentView: View {
+//    var body: some View {
+//        VStack {
+//            Image(systemName: "globe")
+//                .imageScale(.large)
+//                .foregroundStyle(.tint)
+//            Text("Heyo, JORD!")
+//        }
+//        .padding()
+//    }
+//}
+//
+//#Preview {
+//    ContentView()
+//}
+
+// Code from ST
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        Text("Hi Jord")
+            .font(.title)
+            .fontWeight(.bold)
+            .foregroundColor(Color.red)
+            
     }
 }
 
-#Preview {
-    ContentView()
+struct ContentView_Previews:
+    PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }
