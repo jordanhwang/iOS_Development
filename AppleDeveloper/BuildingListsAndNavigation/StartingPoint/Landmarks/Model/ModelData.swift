@@ -8,11 +8,9 @@
 
 import Foundation
 
-
-class ModelData: ObservableObject {
-    @Published var landmarks: [Landmark] = load("landmarkData.json")
-    
-    static let shared = ModelData()
+@Observable
+class ModelData {
+    var landmarks: [Landmark] = load("landmarkData.json")
 }
 
 
