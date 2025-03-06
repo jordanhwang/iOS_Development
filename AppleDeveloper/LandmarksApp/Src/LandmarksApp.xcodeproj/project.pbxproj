@@ -14,6 +14,8 @@
 		0D520AD32D76B55900C14522 /* LandmarkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D520AD22D76B55900C14522 /* LandmarkList.swift */; };
 		0D520AD52D76BBA900C14522 /* LandmarkDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D520AD42D76BBA900C14522 /* LandmarkDetail.swift */; };
 		0D520AD72D78181900C14522 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D520AD62D78181100C14522 /* FavoriteButton.swift */; };
+		0D520B0C2D791A8800C14522 /* HexagonParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D520B0B2D791A8200C14522 /* HexagonParameters.swift */; };
+		0D520B0E2D791B3500C14522 /* BadgeBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D520B0D2D791B2F00C14522 /* BadgeBackground.swift */; };
 		C20D77EE24B665D7002E7AEA /* LandmarksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20D77ED24B665D7002E7AEA /* LandmarksApp.swift */; };
 		C20D77F024B665D7002E7AEA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20D77EF24B665D7002E7AEA /* ContentView.swift */; };
 		C20D77F224B665D8002E7AEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C20D77F124B665D8002E7AEA /* Assets.xcassets */; };
@@ -30,6 +32,8 @@
 		0D520AD22D76B55900C14522 /* LandmarkList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkList.swift; sourceTree = "<group>"; };
 		0D520AD42D76BBA900C14522 /* LandmarkDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkDetail.swift; sourceTree = "<group>"; };
 		0D520AD62D78181100C14522 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
+		0D520B0B2D791A8200C14522 /* HexagonParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagonParameters.swift; sourceTree = "<group>"; };
+		0D520B0D2D791B2F00C14522 /* BadgeBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeBackground.swift; sourceTree = "<group>"; };
 		C20D77EA24B665D7002E7AEA /* Landmarks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Landmarks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C20D77ED24B665D7002E7AEA /* LandmarksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarksApp.swift; sourceTree = "<group>"; };
 		C20D77EF24B665D7002E7AEA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -60,6 +64,8 @@
 		0D520AC22D75E5D400C14522 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0D520B0D2D791B2F00C14522 /* BadgeBackground.swift */,
+				0D520B0B2D791A8200C14522 /* HexagonParameters.swift */,
 				C20D77EF24B665D7002E7AEA /* ContentView.swift */,
 				0D520AD92D7819C800C14522 /* Helpers */,
 				0D520AD82D7819B600C14522 /* Landmarks */,
@@ -197,7 +203,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C20D77E524B665D7002E7AEA /* Build configuration list for PBXProject "CreatingAndCombiningViews" */;
+			buildConfigurationList = C20D77E524B665D7002E7AEA /* Build configuration list for PBXProject "LandmarksApp" */;
 			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -237,8 +243,10 @@
 				C20D77FF24B67FB3002E7AEA /* MapView.swift in Sources */,
 				C20D77EE24B665D7002E7AEA /* LandmarksApp.swift in Sources */,
 				0D520AD72D78181900C14522 /* FavoriteButton.swift in Sources */,
+				0D520B0C2D791A8800C14522 /* HexagonParameters.swift in Sources */,
 				0D520AD32D76B55900C14522 /* LandmarkList.swift in Sources */,
 				0D520AD52D76BBA900C14522 /* LandmarkDetail.swift in Sources */,
+				0D520B0E2D791B3500C14522 /* BadgeBackground.swift in Sources */,
 				C20D77FD24B668F4002E7AEA /* CircleImage.swift in Sources */,
 				0D520AB32D75E0A600C14522 /* Landmark.swift in Sources */,
 				0D520AC62D75E65000C14522 /* LandmarkRow.swift in Sources */,
@@ -432,7 +440,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C20D77E524B665D7002E7AEA /* Build configuration list for PBXProject "CreatingAndCombiningViews" */ = {
+		C20D77E524B665D7002E7AEA /* Build configuration list for PBXProject "LandmarksApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C20D77F724B665D8002E7AEA /* Debug */,
