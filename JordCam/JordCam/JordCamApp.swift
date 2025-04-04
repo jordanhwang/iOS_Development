@@ -1,10 +1,10 @@
 import SwiftUI
 
 @main
-struct JordCamApp: App {
+struct CameraApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CameraView()
         }
     }
 }
