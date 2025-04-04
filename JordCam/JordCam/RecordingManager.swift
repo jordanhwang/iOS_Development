@@ -39,7 +39,7 @@ class RecordingManager: NSObject, ObservableObject {
 
     func startRecording() {
         cameraTransforms = []
-        recordingStartTime = CACurrentMediaTime() + recordingDelay
+        recordingStartTime = nil
 
         do {
             try setupWriter()
@@ -86,12 +86,19 @@ class RecordingManager: NSObject, ObservableObject {
     func handleFrame(_ frame: ARFrame) {
         guard isRecording else { return }
 
-        if let start = recordingStartTime, frame.timestamp >= start {
+        if recordingStartTime == nil {
+            recordingStartTime = frame.timestamp + recordingDelay
+            print("⏱ Delaying recording start to timestamp: \(recordingStartTime!)")
+            return
+        }
+
+        if frame.timestamp >= recordingStartTime! {
             saveTransform(from: frame)
             savePixelBuffer(from: frame)
         }
-
     }
+
+
 
     
     func deleteRecording(_ recording: RecordingMetadata) {
@@ -133,8 +140,6 @@ class RecordingManager: NSObject, ObservableObject {
     }
 
     private func savePixelBuffer(from frame: ARFrame) {
-        print("📸 Saving frame to video")
-
         let pixelBuffer = frame.capturedImage
 
         guard let input = videoInput,
@@ -144,22 +149,25 @@ class RecordingManager: NSObject, ObservableObject {
         let timestamp = CMTime(seconds: frame.timestamp, preferredTimescale: 600)
 
         if writer.status == .unknown {
-            if let start = recordingStartTime {
-                let startTime = CMTime(seconds: start, preferredTimescale: 600)
-                writer.startWriting()
-                writer.startSession(atSourceTime: startTime)
-                sessionStartTime = startTime
-            } else {
-                // Fallback in case something weird happens
-                writer.startWriting()
+            let started = writer.startWriting()
+            if started {
                 writer.startSession(atSourceTime: timestamp)
                 sessionStartTime = timestamp
+            } else {
+                print("❌ Failed to start writing: \(writer.error?.localizedDescription ?? "Unknown error")")
             }
         }
 
+
         if input.isReadyForMoreMediaData {
-            adaptor.append(pixelBuffer, withPresentationTime: timestamp)
+            let success = adaptor.append(pixelBuffer, withPresentationTime: timestamp)
+            if !success {
+                print("❌ Failed to append pixel buffer: \(writer.error?.localizedDescription ?? "Unknown error")")
+            }
+        } else {
+            print("⚠️ Video input not ready for more data at time \(timestamp.seconds)")
         }
+
     }
 
     private func setupWriter() throws {
