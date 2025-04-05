@@ -4,7 +4,7 @@ import SwiftUI
 struct JordCamApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CameraView()
         }
     }
 }
